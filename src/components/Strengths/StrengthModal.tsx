@@ -46,7 +46,13 @@ const MapPeopleSearch = ({ people }: MapPeopleSearchProps) => {
 
 const MapOpportunitiesSearch = ({
   opportunities,
+  isLoading,
 }: MapOpportunitiesSearchProps) => {
+  if (isLoading) {
+    console.log(isLoading)
+    return <OpportunityChip isLoading={isLoading} />
+  }
+
   return (
     <>
       {opportunities?.map((opportunity, key) => (
