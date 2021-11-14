@@ -9,6 +9,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { searchOpportunities } from 'api/searchOpportunities'
+import { searchPeople } from 'api/searchPeople'
 import { useQuery } from 'react-query'
 import { Strength } from 'types/strength'
 
@@ -25,7 +26,17 @@ export const StrengthModal = ({
 }: StrengthModalProps) => {
   const { data: dataOpportunities } = useQuery(
     ['opportunities', strength?.name.toLowerCase(), strength?.proficiency],
-    searchOpportunities
+    searchOpportunities,
+    {
+      enabled: !!strength?.name && !!strength?.proficiency,
+    }
+  )
+  const { data: dataPeople } = useQuery(
+    ['people', strength?.name.toLowerCase(), strength?.proficiency],
+    searchPeople,
+    {
+      enabled: !!strength?.name && !!strength?.proficiency,
+    }
   )
 
   return (

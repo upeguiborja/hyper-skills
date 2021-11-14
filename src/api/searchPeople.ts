@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-export const searchOpportunities = async ({ queryKey }: { queryKey: any }) => {
+export const searchPeople = async ({ queryKey }: { queryKey: any }) => {
   // TODO: Type queryKey
   const params = {
     lang: 'en',
-    size: 2,
+    size: 3,
     aggregate: false,
   }
 
