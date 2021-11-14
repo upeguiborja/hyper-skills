@@ -10,13 +10,29 @@ import {
 } from '@chakra-ui/react'
 import { searchOpportunities } from 'api/searchOpportunities'
 import { searchPeople } from 'api/searchPeople'
+import { ProfileChip } from 'components/Profile/ProfileChip'
 import { useQuery } from 'react-query'
-import { Strength } from 'types/strength'
+import { PersonThirdParty, Strength } from 'types'
 
 type StrengthModalProps = {
   isOpen: boolean
   onClose: any
   strength?: Strength
+}
+
+type MapPeopleSearchProps = {
+  people: PersonThirdParty[]
+}
+
+const MapPeopleSearch = ({ people }: MapPeopleSearchProps) => {
+  console.log(people)
+  return (
+    <>
+      {people?.map((person, key) => (
+        <ProfileChip key={key} person={person} />
+      ))}
+    </>
+  )
 }
 
 export const StrengthModal = ({
@@ -53,6 +69,10 @@ export const StrengthModal = ({
         <Box>Proficiency: {strength?.proficiency}</Box>
         <Box>Recommendations: {strength?.recommendations}</Box>
         <Divider mt='16px'></Divider>
+        <Box mt='16px'>
+          <Heading>Other people with this skill:</Heading>
+          <MapPeopleSearch people={dataPeople?.results} />
+        </Box>
       </ModalContent>
     </Modal>
   )

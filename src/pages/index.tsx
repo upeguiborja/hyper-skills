@@ -6,7 +6,7 @@ import { Divider, useDisclosure } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { StrengthModal, Strengths } from 'components/Strengths'
 import { useState } from 'react'
-import { Strength } from 'types/strength'
+import { Strength } from 'types'
 
 type MapStrengthsProps = {
   strengths: any
@@ -44,7 +44,6 @@ const Home: NextPage = () => {
   const { data: dataUserBio } = useQuery(['bio', username], fetchUserBio)
 
   const handleSelectStrength = (strength: any) => {
-    console.log(strength)
     setSelectedStrength(strength)
     onOpen()
   }

@@ -22,7 +22,6 @@ export const searchOpportunities = async ({ queryKey }: { queryKey: any }) => {
   return await axios
     .post('/api/opportunities/_search', body, { params: params })
     .then(({ data }) => {
-      console.log(data)
       return data
     })
 }

@@ -20,7 +20,6 @@ export const searchPeople = async ({ queryKey }: { queryKey: any }) => {
   return await axios
     .post('/api/people/_search', body, { params: params })
     .then(({ data }) => {
-      console.log(data)
       return data
     })
 }
