@@ -7,6 +7,8 @@ import {
   ModalCloseButton,
   Divider,
   Box,
+  Badge,
+  HStack,
 } from '@chakra-ui/react'
 import { searchOpportunities } from 'api/searchOpportunities'
 import { searchPeople } from 'api/searchPeople'
@@ -14,6 +16,7 @@ import { OpportunityChip } from 'components/Opportunities/OpportunitiesChip'
 import { ProfileChip } from 'components/Profile/ProfileChip'
 import { useQuery } from 'react-query'
 import { PaginatedSearchResult, PersonThirdParty, Strength } from 'types'
+import { ProficiencyLabels } from 'utils'
 
 type StrengthModalProps = {
   isOpen: boolean
@@ -84,9 +87,14 @@ export const StrengthModal = ({
         </ModalHeader>
         <ModalCloseButton />
 
-        <Divider mt='16px'></Divider>
-        <Box>Proficiency: {strength?.proficiency}</Box>
-        <Box>Recommendations: {strength?.recommendations}</Box>
+        <HStack spacing='24px'>
+          {strength?.proficiency && (
+            <Badge colorScheme='blue'>
+              {ProficiencyLabels?.[strength?.proficiency]}
+            </Badge>
+          )}
+          <Badge>{strength?.recommendations} Recommendations</Badge>
+        </HStack>
 
         <Divider mt='16px' />
         <Box mt='16px'>

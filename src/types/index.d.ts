@@ -5,11 +5,18 @@ export type Strength = {
   id: string
   media: any[] // find out what types are on the array
   name: string
-  proficiency: 'master' | 'expert' | 'proficient' | 'no-experience-interested'
+  proficiency: ProficiencyLevels
   recommendations: number
   supra: boolean
   weight: number
 }
+
+export type ProficiencyLevels =
+  | 'master'
+  | 'expert'
+  | 'proficient'
+  | 'novice'
+  | 'no-experience-interested'
 
 export type PaginatedSearchResult<T> = {
   aggregators: any
