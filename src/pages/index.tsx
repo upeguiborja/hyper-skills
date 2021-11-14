@@ -40,7 +40,7 @@ const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [selectedStrength, setSelectedStrength] = useState<Strength>()
 
-  const username = 'upeguiborja'
+  const username = 'torrenegra'
   const { data: dataUserBio } = useQuery(['bio', username], fetchUserBio)
 
   const handleSelectStrength = (strength: any) => {
