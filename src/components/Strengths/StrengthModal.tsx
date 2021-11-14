@@ -8,6 +8,8 @@ import {
   Divider,
   Box,
 } from '@chakra-ui/react'
+import { searchOpportunities } from 'api/searchOpportunities'
+import { useQuery } from 'react-query'
 import { Strength } from 'types/strength'
 
 type StrengthModalProps = {
@@ -21,6 +23,11 @@ export const StrengthModal = ({
   onClose,
   strength,
 }: StrengthModalProps) => {
+  const { data: dataOpportunities } = useQuery(
+    ['opportunities', strength?.name.toLowerCase(), strength?.proficiency],
+    searchOpportunities
+  )
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
       <ModalOverlay />
