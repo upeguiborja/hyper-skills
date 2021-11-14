@@ -6,7 +6,7 @@ type ProfileHeaderProps = {
 
 export const ProfileHeader = ({ person }: ProfileHeaderProps) => {
   return (
-    <Box>
+    <Box w='100%'>
       <VStack>
         <Avatar size='2xl' name={person?.name} src={person?.picture} />
         <Heading textAlign='center'>{person?.name}</Heading>

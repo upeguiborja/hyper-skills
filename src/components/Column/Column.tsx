@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
 
-export const Column = ({ children }: { children: React.ReactElement }) => {
+export const Column = ({ children }: { children: React.ReactNode }) => {
   return (
     <Box
       width={['100vw', null, '400px']}
@@ -9,7 +9,7 @@ export const Column = ({ children }: { children: React.ReactElement }) => {
       p='24px'
       overflowY='auto'
     >
-      <Flex>{children}</Flex>
+      <Flex flexDir='column'>{children}</Flex>
     </Box>
   )
 }
