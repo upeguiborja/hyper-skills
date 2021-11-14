@@ -7,15 +7,19 @@ type ProfileChipProps = {
 
 export const ProfileChip = ({ person }: ProfileChipProps) => {
   return (
-    <HStack>
-      <Avatar size='sm' name={person?.name} src={person?.picture} />
+    <HStack
+      mt='16px'
+      href={`https://torre.co/${person.username}`}
+      as={Link}
+      target='_blank'
+      textDecor='none'
+    >
+      <Avatar size='lg' name={person?.name} src={person?.picture} />
       <Box>
         <Heading as='h6' size='sm'>
-          <Link href={`https://torre.co/${person.username}`}>
-            {person?.name}
-          </Link>
+          {person?.name}
         </Heading>
-        <Text>{person?.professionalHeadline}</Text>
+        <Text mt='8px'>{person?.professionalHeadline}</Text>
       </Box>
     </HStack>
   )
