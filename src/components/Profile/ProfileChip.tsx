@@ -3,6 +3,7 @@ import { PersonThirdParty } from 'types'
 
 type ProfileChipProps = {
   person: PersonThirdParty
+  isLoading?: boolean
 }
 
 export const ProfileChip = ({ person }: ProfileChipProps) => {
