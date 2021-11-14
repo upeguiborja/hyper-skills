@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 import { fetchUserBio } from 'api/fetchUserBio'
 import { Column } from 'components'
 import { ProfileHeader } from 'components/Profile/ProfileHeader'
-import { Divider, useDisclosure } from '@chakra-ui/react'
+import { Divider, Container, useDisclosure } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { StrengthModal, Strengths } from 'components/Strengths'
 import { useState } from 'react'
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <>
+    <Container maxW='container.xl'>
       <Column>
         <ProfileHeader person={dataUserBio?.person} />
         <Divider mt='16px' />
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
         onClose={onClose}
         strength={selectedStrength}
       />
-    </>
+    </Container>
   )
 }
 
